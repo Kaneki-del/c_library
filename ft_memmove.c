@@ -6,7 +6,7 @@
 /*   By: sait-nac <sait-nac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 16:12:28 by sait-nac          #+#    #+#             */
-/*   Updated: 2024/10/26 18:10:47 by sait-nac         ###   ########.fr       */
+/*   Updated: 2024/10/28 15:08:05 by sait-nac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	d = (unsigned char *)dst;
 	s = (unsigned char *)src;
-
 	if (d > s)
 		while (len-- > 0)
 			d[len] = s[len];
