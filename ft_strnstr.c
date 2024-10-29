@@ -38,13 +38,3 @@ char    *ft_strnstr(const char *haystack, const char *needle, size_t len)
     }
     return (NULL);
 }
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-    char *p1 = "ahhmed";
-    char *p2 = "med";
-    printf("%d", ft_strnstr(p1, p2, ft_strlen(p1)));
-    printf("%d", strnstr(p1, p2, ft_strlen(p1)));
-    return 0;
-}
