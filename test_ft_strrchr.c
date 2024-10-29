@@ -3,7 +3,7 @@
 #include <string.h>
 #include "libft.h"
 
-void test_ft_strchr(const char *str, int c) {
+void test_ft_strrchr(const char *str, int c) {
     char *result = ft_strrchr(str, c);
     char *expected = strrchr(str, c); // Standard library function for comparison
 
@@ -18,12 +18,12 @@ void test_ft_strchr(const char *str, int c) {
 
 int main() {
     // Test cases
-    test_ft_strchr("Hello, world!", 'o');
-    test_ft_strchr("Hello, world!", 'H');
-    test_ft_strchr("Hello, world!", '!');
-    test_ft_strchr("Hello, world!", 'x'); // Character not in the string
-    test_ft_strchr("", 'a'); // Empty string
-    test_ft_strchr("abc", '\0'); // Null terminator
+    test_ft_strrchr("Hello, world!", 'o');
+    test_ft_strrchr("Hello, world!", 'H');
+    test_ft_strrchr("Hello, world!", '!');
+    test_ft_strrchr("Hello, world!", 'x'); // Character not in the string
+    test_ft_strrchr("", 'a'); // Empty string
+    test_ft_strrchr("abc", '\0'); // Null terminator
 
     return 0;
 }

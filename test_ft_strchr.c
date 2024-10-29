@@ -21,7 +21,7 @@ int main() {
     test_ft_strchr("Hello, world!", 'o');
     test_ft_strchr("Hello, world!", 'H');
     test_ft_strchr("Hello, world!", '!');
-    test_ft_strchr("Hello, world!", 'x'); // Character not in the string
+    test_ft_strchr("Hello, world!", -150); // Character not in the string
     test_ft_strchr("", 'a'); // Empty string
     test_ft_strchr("abc", '\0'); // Null terminator
 

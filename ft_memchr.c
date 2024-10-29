@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sait-nac <sait-nac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 12:03:29 by sait-nac          #+#    #+#             */
-/*   Updated: 2024/10/28 17:20:02 by sait-nac         ###   ########.fr       */
+/*   Created: 2024/10/29 13:58:10 by sait-nac          #+#    #+#             */
+/*   Updated: 2024/10/29 14:11:28 by sait-nac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*ptr;
+	unsigned char	*str;
+	size_t			i;
+	unsigned char	ch;
 
-	ptr = (unsigned char *)s;
-	while (n > 0)
+	str = (unsigned char *)s;
+	ch = (unsigned char)c;
+	i = 0;
+	while (i < n)
 	{
-		*(ptr++) = 0;
-		n--;
+		if (str[i] == ch)
+			return ((void *) &str[i]);
+		i++;
 	}
+	return (NULL);
 }
