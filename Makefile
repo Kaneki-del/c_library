@@ -1,27 +1,29 @@
 CC = cc
-
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_isalpha.c
+SRCS = ft_atoi.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c\
+	ft_memcmp.c ft_memmove.c ft_memset.c ft_strchr.c ft_strlcat.c ft_strlcpy.c\
+	ft_strlen.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c strncmp.c
 
 OBJS = $(SRCS:.c=.o)
 
 NAME = libft.a
-AR = ar -rcs $(NAME)
+
+INCLUDES = ./libft.h
+
 all: $(NAME)
-# all: f1.o f2.o
 
 $(NAME): $(OBJS)
-	${AR} ${NAME} $
+	@ar rcs $@ $^
 
-%.o : %.c libft.h
-	$(CC) $(CFLAGS) $< -o $@ -c
+%.o: %.c $(INCLUDES)
+	@$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
-clean :
-	rm $(OBJS)
+clean:
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

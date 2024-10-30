@@ -14,7 +14,7 @@ int	ft_atoi(const char *str)
 {
 	int	result;
 	int	signe;
-	
+
 	result = 0;
 	while (*str == 32 || ((*str >= 9) && *str <= 13))
 		str++;
@@ -31,12 +31,4 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (result * signe);
-}
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-int main()
-{
-	printf("%d\n", ft_atoi(" -34"));
-	printf("%d\n", atoi(" -34"));
 }

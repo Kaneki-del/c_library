@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sait-nac <sait-nac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 18:44:36 by sait-nac          #+#    #+#             */
-/*   Updated: 2024/10/30 14:54:51 by sait-nac         ###   ########.fr       */
+/*   Created: 2024/10/26 12:03:29 by sait-nac          #+#    #+#             */
+/*   Updated: 2024/10/30 13:36:27 by sait-nac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_bzero(void *s, size_t n)
 {
-	char	*result;
+	unsigned char	*ptr;
 
-	while (*s)
+	ptr = (unsigned char *)s;
+	while (n > 0)
 	{
-		if (*s == c)
-			result = (char *)s;
-		s++;
+		*(ptr++) = 0;
+		n--;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return (result);
 }
