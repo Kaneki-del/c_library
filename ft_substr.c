@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sait-nac <sait-nac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/25 17:30:16 by sait-nac          #+#    #+#             */
-/*   Updated: 2024/10/30 18:21:32 by sait-nac         ###   ########.fr       */
+/*   Created: 2024/10/30 18:29:58 by sait-nac          #+#    #+#             */
+/*   Updated: 2024/10/30 21:10:51 by sait-nac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*ptr;
+	size_t	i;
+	char	*str;
 
-	ptr = (unsigned char *)b;
-	while (len > 0)
+	if (!s)
+		return (NULL);
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	i = 0;
+	str = (char *)malloc(len + 1);
+	if (str == NULL)
+		return (NULL);
+	while (i < len)
 	{
-		*(ptr++) = c;
-		len--;
+		str[i] = s[start + i];
+		i++;
 	}
-	return (b);
+	str[i] = '\0';
+	return (str);
 }
