@@ -6,13 +6,11 @@
 /*   By: sait-nac <sait-nac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:08:42 by sait-nac          #+#    #+#             */
-/*   Updated: 2024/10/30 13:39:04 by sait-nac         ###   ########.fr       */
+/*   Updated: 2024/10/30 22:11:16 by sait-nac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

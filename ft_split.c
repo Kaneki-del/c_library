@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sait-nac <sait-nac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 18:44:36 by sait-nac          #+#    #+#             */
-/*   Updated: 2024/10/30 22:11:34 by sait-nac         ###   ########.fr       */
+/*   Created: 2024/10/30 23:04:35 by sait-nac          #+#    #+#             */
+//*   Updated: 2024/10/30 23:18:09 by sait-nac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strrchr(const char *s, int c)
+
+static int	cownt_words(char *str, char c)// count the strings
 {
-	char	*result;
+	int	i;
+	int	count;
 
-	while (*s)
+	i = 0;
+	count = 0;
+	while (str[i])
 	{
-		if (*s == c)
-			result = (char *)s;
-		s++;
+		while ((str[i] == c) && str[i])
+			i++;
+		if (str[i] != '\0')
+			count++;
+		while ((str[i] != c) && str[i])
+			i++;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	return (result);
+	return (count);
+}
+//
+int main()
+{
+	char *ptr = "ahsdfdadfhdfkahfdjf";
+	char a = 'a';
+	int i = cownt_words(ptr, a);
+	printf("%d", i);
 }
