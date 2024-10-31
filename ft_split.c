@@ -13,30 +13,71 @@
 #include "libft.h"
 #include <stdio.h>
 
-
-static int	cownt_words(char *str, char c)// count the strings
+static int    word_lent(const char *w, char c)
 {
-	int	i;
-	int	count;
+    size_t    i;
 
-	i = 0;
-	count = 0;
-	while (str[i])
-	{
-		while ((str[i] == c) && str[i])
-			i++;
-		if (str[i] != '\0')
-			count++;
-		while ((str[i] != c) && str[i])
-			i++;
-	}
-	return (count);
+    i = 0;
+    while (w[i] && (w[i] != c))
+        i++;
+    return (i);
 }
-//
-int main()
+static int    cownt_words(const char *str, char c)
 {
-	char *ptr = "ahsdfdadfhdfkahfdjf";
-	char a = 'a';
-	int i = cownt_words(ptr, a);
-	printf("%d", i);
+    int    i;
+    size_t    count;
+
+    i = 0;
+    count = 0;
+    while (str[i])
+    {
+        while ((str[i] == c) && str[i])
+            i++;
+        if (str[i] != '\0')
+            count++;
+        while ((str[i] != c) && str[i])
+            i++;
+    }
+    return (count);
+}
+static char    *append(const char *str, char c)
+{
+    size_t    lent;
+    int i;
+    char    *ptr;
+
+    i = 0;
+    lent = word_lent(str, c);
+    ptr = (char *)malloc(sizeof(char) * (lent + 1));
+    while (i < lent)
+    {
+        ptr[i] = str[i];
+        i++;
+    }
+    ptr[i] = '\0';
+    return ptr;
+}
+
+char    **ft_split(const char *s, char c)
+{
+    char    **str;
+    int        i;
+
+    i = 0;
+
+    str = (char **)malloc(sizeof(char *) * (cownt_words(s, c) + 1));
+    while (*s != '\0')
+    {
+        while (*s && (*s == c))
+            s++;
+        if (*s != '\0')
+        {
+            str[i] = append(s, c);
+            i++;
+        }
+        while (*s && (*s != c))
+            s++;
+    }
+    str[i] = 0;
+    return str;
 }
